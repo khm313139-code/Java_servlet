@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>사용자가 입력한 데이터를 backend로 전달하기</title>
+</head>
+
+
+<body>
+<form id="frm" method="post" action="./servlet1.do"><!-- do는 컨트롤러 전용 파일-->
+<!--get은 파라미터가 위에 뜨고 post는 백에 암호화 되어 깔린다. usernm=dfadsf 이렇게 url 뒤에 파라미터가 붙으면 get통신
+post는 url에 아무것도 안든다. http://localhost:8080/web_servlet/servlet1.do 이렇게
+-->
+
+검색할 사용자 이름을 입력하세요 : <input type = "text" name="usernm"><br> 
+<input type ="button" value="전송" onclick="gopage()">
+</form>
+</body>
+
+
+<script>
+	function gopage(){
+		if(frm.usernm.value==""){
+			alert("검색할 이름을 입력하셔야 합니다.");
+		}
+		else{
+			frm.submit();
+		}
+	}
+	
+</script>
+
+
+</html>

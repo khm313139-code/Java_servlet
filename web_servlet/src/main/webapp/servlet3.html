@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Insert title here</title>
+</head>
+
+<body>
+	
+게시판 등록
+
+<form method="post" id = "frm" action="http://172.30.1.68:8080/web_servlet/servlet3.do">
+제목 : <input type="text" name="title"><br>
+글쓴이 : <input type="text" name="usernm"><br>
+내용:  <br>
+<textarea name=con rows="6" cols="22"></textarea><br>
+비밀번호 : <input type="password" name="pw" ><br>
+<input type="button" value="글쓰기" onclick="aa()">
+</form>
+</body>
+
+
+<script>
+function aa(){
+	if(frm.title.value==""){
+		alert("제목을 입력해주세요.");
+	}
+	else if(frm.usernm.value==""){
+		alert("글쓴이를 써주세요.");
+	}
+	else if(frm.con.value==""){
+		alert("내용을 입력해주세요.");
+	}
+	else if(frm.pw.value==""){
+		alert("비밀번호를 입력해주세요.");
+	}
+	else{
+		frm.submit();
+	}
+}	
+
+</script>
+</html>
