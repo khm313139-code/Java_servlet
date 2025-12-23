@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>도서 검색 응용문제</title>
+</head>
+<body>
+
+<form id="frm1" method="post" action="./servlet9.do" onsubmit="return gopage3()">
+<select name="choice">
+	<option value="">검색형태</option>	
+	<option value="name">책이름</option>	
+	<option value="auth">저자명</option>	
+</select>
+
+<input type="text" name="search">
+<input type="submit" value="검색">
+</form> 
+
+</body>
+<script>
+	function gopage3(){
+	    if(frm1.choice.value == ""){
+	        alert("검색형태를 선택하세요!");
+	        return false;
+	    }
+
+	    if(frm1.search.value == ""){
+	        alert("검색어를 입력하세요!");
+	        frm1.search.focus();
+	        return false;
+	    }
+
+    return true; // 여기 도달했을 때만 전송
+}
+	
+	
+</script>
+
+
+
+</html>

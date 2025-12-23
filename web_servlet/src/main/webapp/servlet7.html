@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>더블 form 전송 방식</title>
+</head>
+
+
+<!-- result.jsp / idsearch.java / password.java 와 연결-->
+
+
+<body>
+<form id="frm1" method="post" action="./idsearch.do"><!--do 2개 만든다-->
+<p>[아이디 찾기]</p>
+이름 : <input type="text" name="mname"><br>
+이메일 : <input type="text" name="memail"><br>
+<input type="button" value="검색" onclick="gopage1()">
+</form>
+
+<form id="frm2" method="post" action="./password.do">
+<p>[패스워드 찾기]</p>
+아이디: <input type="text" name="mid"><br>
+이름: <input type="text" name="username"><br> <!-- 위랑 같은 name 쓰면 안된다 그럼 노드 형태로 찍혀버림-->
+<input type="button" value="검색" onclick="gopage2()">
+</form>
+
+
+
+</body>
+<script>
+	function gopage1(){ //아이디 찾는 함수
+		if(frm1.mname.value==""){
+			alert("이름을 입력하세요");
+			frm1.mname.focus(); <!-- 커서 입력하는 곳에 바로 가는 것 -->
+		}
+		else if(frm1.memail.value ==""){
+			alert("이메일을 입력하세요");
+			frm1.memail.focus();
+		}
+		else{
+			frm1.submit();
+		}
+	}
+	function gopage2(){ //패스워드 찾는 함수
+		if(frm2.mid.value==""){
+			alert("아이디를 입력하세요");
+			frm1.mid.focus(); // 커서 입력하는 곳에 바로 가는 것 
+		}
+		else if(frm2.username.value ==""){
+			alert("이름을 입력하세요");
+			frm1.username.focus();
+		}
+		else{
+			frm2.submit();
+		}
+	}
+</script>
+
+
+</html>

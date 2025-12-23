@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HTML 이메일 선택에 따른 결과를 받는 코드</title>
+</head>
+<body>
+<!-- 
+	name = "email1"           name = "email2"
+<input type="text"> @ <input type="text"> input이 2개니 name이 두개를 받아야 한다고 생각할 수 있음
+
+but
+name = "email" 이거 하나로 날릴수가 있다 어디서? => js에서
+-->	
+	
+<form id="frm" method="post" action="./servlet5.do">
+	
+<input type="hidden" name="email"> 
+<!-- hidden: 개발자가 서로 소통하기 위한 데이터 전송 속성값 이거는 name 하나 사용-->
+
+<!--name 2개 사용 =>  이메일: <input type="text" name="email1"> @ <input type="text" name="email2"> -->
+이메일: <input type="text" name="email1"> @ <input type="text" name="email2">
+<select id="usermail" onchange="em(this.value)"> <!-- this.value에 따라 em함수 호출이 됨 => 함수가 있어야한다.-->
+	<option value="">직접입력</option>
+	<option value="naver.com">네이버</option>
+	<option value="nate.com">네이트</option>
+	<option value="gmail.com">구글</option>
+	<option value="hanmail.net">한메일</option>
+</select>
+<input type="button" value="이메일 체크" onclick="gopage()">
+</form>
+</body>
+
+<script>
+	
+	function em(data){
+		if(data != ""){
+			frm.email2.value = data;
+			frm.email2.readOnly = true;
+		}
+		else{
+			frm.email2.value="";
+			frm.email2.readOnly = false;
+		}
+	}
+	
+	
+	function gopage(){
+		if(frm.email1.value==""||frm.email2.value==""){
+			alert("이메일을 모두 입력하셔야 합니다.");
+		}
+		else{
+			frm.email.value = frm.email1.value + "@" +frm.email2.value; <!-- name 하나 사용해서 보냄 빽으로-->
+			frm.submit();
+		}
+	}
+	
+</script>	
+
+
+
+</html>

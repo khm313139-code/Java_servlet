@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>GET 통신으로 Back-end 처리 - 공지사항, 게시판(개인정보하고 관련 없는 것들)</title>
+</head>
+<body>
+	
+<!-- script에서 base64 암호화 전송 (프런트 단에서) --> 
+<form id="frm" method="get" action="./servlet6.do" onsubmit="return gopage()">
+	<!--onsubmit="return gopage"정보 입력 안해도 막 날라가서 이거 넣어줘야 함-->
+	<input type="hidden" name="search" value=""><!--script에서 base64 암호화 전송 (프런트 단에서) - 실제는 hidden이 날라간다. -->
+상품명 검색 : <input type="text" id="snm"> 
+<!-- submit 쓸때는 onclick 써봤자 의미가 없음-->
+<!-- onclick 사용할 필요 없음--> 
+
+<input type="submit" value="검색">
+</form>
+
+
+</body>
+<script>
+	function gopage(){
+		var snm = document.getElementById("snm"); <!-- id로 검토하는 것 - base64 사용으로 조금 바뀜 -->
+		if(snm.value==""){
+			alert("상품명을 입력하세요!");
+			return false;
+		}
+		/* 날릴때임 빽단으로 */
+		else{ 
+			//encodeURIComponent: 바이트로 바꿔준다. escape 문자로 바꿔준다
+			//띄워쓰기를 %에 대한 escape 문자를 변환해서 base64로 변경
+			//UTF-8 => btoa : base64 인코딩, atob : base64 디코딩
+			var word = encodeURIComponent(snm.value); //암호화 된거를 빽단에서 처리해버리면 된다.
+			frm.search.value = btoa(word);
+			
+			//atob : base64 디코딩
+			var word2 = atob(frm.search.value);
+			var word3 = decodeURIComponent(word2);
+			console.log(word3);
+			
+			//return false;
+			return true;
+		}
+	}
+	
+</script>
+
+</html>
