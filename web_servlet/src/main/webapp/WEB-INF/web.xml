@@ -104,5 +104,37 @@
   		<url-pattern>/servlet9.do</url-pattern>
   	</servlet-mapping>
   
+  	
+  	
+  	<servlet>
+  		<servlet-name>userinfo</servlet-name>
+  		<servlet-class>web_servlet.servlet10</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>userinfo</servlet-name>
+  		<url-pattern>/servlet10.do</url-pattern>
+  	</servlet-mapping>
+  
+  
+  
+  	<servlet>
+  		<servlet-name>servlet11</servlet-name>
+  		<servlet-class>web_servlet.servlet11</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>servlet11</servlet-name>
+  		<url-pattern>/servlet11.do</url-pattern>
+  	</servlet-mapping>
+  	
+  	
+  	
+  	<servlet>
+  		<servlet-name>servlet13</servlet-name>
+  		<servlet-class>web_servlet.servlet13</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>servlet13</servlet-name>
+  		<url-pattern>/servlet13.do</url-pattern>
+  	</servlet-mapping>
   
 </web-app>
