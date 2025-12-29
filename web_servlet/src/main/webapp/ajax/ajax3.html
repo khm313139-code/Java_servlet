@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Javascript - back-end에서 json 파일 생성에 대한 HTML 출력</title>
+</head>
+<body>
+<input type = "button" value = "출력" onclick="ajax_load()">
+<div id ="box">
+	
+</div>
+
+</body>
+<script>
+	/*
+		Ajax 통신 : 통신 규격 정책 (cors) - 접속한 사이트 도메인 주소와 ajax로 통신 할 주소가 다를 경우 cors가 걸리게 된다.	
+		CORS 발동 법칙
+		1. http, https
+		2. www, 도메인
+		3. port 80, 8080
+	*/
+	function ajax_load(){
+		var data; //json의 데이터를 저장하는 변수
+		var ajax = new XMLHttpRequest();
+		ajax.onreadystatechange = function(){
+			if(ajax.readyState == XMLHttpRequest.DONE){
+				if(ajax.status == 200){
+					//console.log("test");
+					
+					//json.parse : .json이라는 파일형태가 되었을 경우에 사용함.
+					htmlcode(JSON.parse(this.response));
+					//back-end에서 json 배열 값을 return 하더라도 모든 데이터는 문자열임
+				}
+			}
+		}
+		//ajax.open("GET","http://172.30.1.10:8080/web_ajax/data.json",true); 
+		//이렇게 로드하면 에러 뜸 왜냐 java폴더안에 들어 있는 건데 java는 do에서만 실행할 수 있음 안에 있는거 매핑 안시키면 동작 안함
+		//그래서 webapp안에 폴더 web_ajax 만들어서 그 안에 data.json 넣었음.
+		//근데 그러면 cors 에러가 뜬다.
+		
+		ajax.open("GET","http://172.30.1.10:8080/web_ajax/data.json",true); 
+		
+		//ajax.open("GET","http://172.30.1.54:8080/web_ajax/ajax3.do",true); 
+		ajax.send();
+	}
+	
+	
+	
+	function htmlcode(data){
+		var h = document.getElementById("box");
+		var html = ""; //html 코드를 누적시키는 변수
+		/* //forEach: 배열 전용 반복문
+		data.forEach(function(a,b,c){ //foreach 자바 스크립트에서 배열 전용
+		//a: 배열의 그룹단위별 출력, b: 그룹단위 배열번호, c: 배열전체
+			console.log(c);
+		
+		});
+		*/
+		//for-in: 배열 전용 반복문
+		for(var a in data){
+			
+			html += "<table border='1' cellpadiing='0' cellspacing='0'><tr>";
+			
+			//console.log(a);
+			//console.log(data[1]);
+			//console.log(data[0][a]);
+			for(var b in data[a]){
+				html += "<td width='100' align='center'>" + data[a][b] + "</td>";
+			}
+			html += "</tr></table>";
+		}
+		h.innerHTML = html;
+		
+				
+	}
+	
+	
+	
+</script>
+</html>

@@ -1,0 +1,132 @@
+/* ajax5.css */
+
+/* 전체 폰트와 배경 */
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+/* 메인 영역 중앙 정렬 */
+.signup-wrap {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+/* 제목 */
+.signup-wrap .title {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* 각 입력 행 */
+.form-row {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 레이블 */
+.form-row label {
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: #555;
+}
+
+/* input 스타일 */
+.form-row input[type="text"],
+.form-row input[type="password"] {
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+    transition: 0.2s;
+}
+.signup-form{display:block}
+.form-row{
+    display:flex;
+    flex-direction:column;
+    margin-bottom:14px;
+}
+.form-row label{
+    font-size:13px;
+    color:var(--muted);
+    margin-bottom:6px;
+}
+.form-row input[type="text"],
+.form-row input[type="password"]{
+    padding:10px 12px;
+    border:1px solid #e6e9ef;
+    border-radius:6px;
+    font-size:15px;
+    background:#fff;
+}
+.input-with-btn{display:flex;gap:8px}
+.check-btn{
+    padding:10px 12px;
+    border:1px solid rgba(6,95,212,0.12);
+    background:#fff;
+    color:var(--accent);
+    border-radius:6px;
+    cursor:pointer;
+    font-weight:600;
+    white-space:nowrap;
+}
+.check-btn:hover{background:linear-gradient(180deg,#f8fbff,#eef7ff)}
+.check-btn.disabled,
+.check-btn[disabled]{
+    opacity:0.6;
+    cursor:not-allowed;
+}
+.status{
+    display:block;
+    margin-top:6px;
+    font-size:13px;
+    color:var(--muted);
+}
+.status.ok{color:#0b9444}
+.status.error{color:#c53030}
+.form-row.actions{display:flex;gap:10px;align-items:center;margin-top:6px}
+.primary{
+    background:var(--primary);
+    color:#fff;
+    border:none;
+    padding:10px 16px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:700;
+}
+.primary:hover{background:#0f56a3}
+.primary.disabled,
+.primary[disabled]{
+    opacity:0.7;
+    cursor:not-allowed;
+}
+.secondary{
+    background:#fff;
+    color:var(--muted);
+    border:1px solid #e6e9ef;
+    padding:10px 16px;
+    border-radius:8px;
+    cursor:pointer;
+}
+.note{
+    margin-top:12px;
+    color:var(--muted);
+    font-size:13px;
+}
+
+@media (max-width:480px){
+    .signup-wrap{padding:18px}
+    .input-with-btn{flex-direction:column}
+    .check-btn{width:100%}
+}
+

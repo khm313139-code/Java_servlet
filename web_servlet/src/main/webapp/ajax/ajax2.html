@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ajax - Jquery로 GET 통신</title>
+<script src = "./jquery.js"></script>
+<!-- 위 코드는 jquery 엔진 가져옴 jquery.js -->
+
+
+<script>
+	//$(document).ready(function(){}) - 책
+	//$(function(){
+	$(()=>{ // - 실무(화살표 함수)
+
+		$("#btn").click(function(){ //아이디니까 #을 써줘야 함.
+			var $mid = $("#mid").val(); //js에 document.getid 가져오는 방식과 비슷 but 코드 완전히 다르다.
+			if($mid==""){
+				alert("아이디를 입력하셔야만 중복확인이 됩니다.");
+			}
+			else{
+
+				let $data; //back-end에서 return 받은 값을 출력하는 변수
+		
+				$.ajax({
+					url : "../web_ajax/ajax2.do?mid="+$mid, //back-end 통신 경로
+					cache : false, //캐시메모리를 쓸거냐 안쓸거냐
+					//브라우저에 캐시를 무시하고 항상 새로운 값을 가져오는 형태
+					type : "get", //통신방법
+					dataType : "text", //전송방식 Datatype은 문자로 보내겠다.
+					//전송 방식 및 응답 데이터 처리를 텍스트로 처리함
+					async : true, //비동기 통신 - true(비동기), false(동기)
+					//이거 안쓰면 기본은 false임 그럼 동기 통신이 default가 됨
+					//jquery 2.x (이상)=> 기본 true, jquery 1.x => 기본 false
+					//gs기업도 기존에 1.4대 사용했다가 3.4대로 바꿨다.
+					success : function($result){ //성공
+					//$result => js에서 this.response와 동일
+						$data = $result
+						if($data == "ok"){ //js는 무조건 == euqals 없다.
+							alert("해당 아이디는 사용 가능합니다.");
+						}
+						else if($data == "no"){
+							alert("이미 사용중인 아이디 입니다.");
+						}
+					},
+					error: function(){ //오류
+						console.log("서버와 통신 오류 발생!!");
+					}
+		
+				});
+			}
+	});
+});
+	
+</script>
+</head>
+<body>
+아이디 : <input type="text" id="mid"> <!-- form 태그가 없어서 id 사용-->
+<input type="button" value="아이디 중복 체크" id="btn"> 
+</body>
+</html>

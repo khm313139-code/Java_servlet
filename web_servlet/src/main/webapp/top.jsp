@@ -4,7 +4,7 @@
 <!-- console에 INFO: Server startup in 773 ms 이게 안떠있으면 tomcat이 죽은거임 -->
 <!-- 상속 받는 것 main에서 -->
 
-<span><%=user%> 님 환영합니다. </span>
+<span> <%=user%> 님 환영합니다. </span>
 
 
 <ul>

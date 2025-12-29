@@ -136,5 +136,72 @@
   		<servlet-name>servlet13</servlet-name>
   		<url-pattern>/servlet13.do</url-pattern>
   	</servlet-mapping>
+  	
+  	
+  	
+  	<servlet>
+	  	<servlet-name>ajax1</servlet-name>
+	  	<servlet-class>web_ajax.ajax1</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>ajax1</servlet-name>
+  		<url-pattern>/web_ajax/ajax1.do</url-pattern>
+  		<!-- 프로젝트명이랑 패키지가 아예 다른 경우는 위처럼 폴더를 적어줘야 한다. -->
+  	</servlet-mapping>
+  	
+  	
+  	
+  	
+  	<servlet>
+	  	<servlet-name>ajax2</servlet-name>
+	  	<servlet-class>web_ajax.ajax2</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>ajax2</servlet-name>
+  		<url-pattern>/web_ajax/ajax2.do</url-pattern>
+  		<!-- 프로젝트명이랑 패키지가 아예 다른 경우는 위처럼 폴더를 적어줘야 한다. -->
+  	</servlet-mapping>
+  	
+  	
+  	
+  	
+  	<servlet>
+	  	<servlet-name>ajax3</servlet-name>
+	  	<servlet-class>web_ajax.ajax3</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>ajax3</servlet-name>
+  		<url-pattern>/web_ajax/ajax3.do</url-pattern>
+  		<!-- 프로젝트명이랑 패키지가 아예 다른 경우는 위처럼 폴더를 적어줘야 한다. -->
+  	</servlet-mapping>
+  	
+  	
+  	
+  	
+  	
+  	<servlet>
+	  	<servlet-name>ajax4</servlet-name>
+	  	<servlet-class>web_ajax.ajax4</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>ajax4</servlet-name>
+  		<url-pattern>/web_ajax/ajax4.do</url-pattern>
+  		<!-- 프로젝트명이랑 패키지가 아예 다른 경우는 위처럼 폴더를 적어줘야 한다. -->
+  	</servlet-mapping>
+  	
+  	
+  	
+  	<servlet>
+	  	<servlet-name>ajax5</servlet-name>
+	  	<servlet-class>web_ajax.ajax5</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>ajax5</servlet-name>
+  		<url-pattern>/web_ajax/ajax5.do</url-pattern>
+  		<!-- 프로젝트명이랑 패키지가 아예 다른 경우는 위처럼 폴더를 적어줘야 한다. -->
+  	</servlet-mapping>
+  	
+  	
+  	
   
 </web-app>
