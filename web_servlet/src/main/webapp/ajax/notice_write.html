@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공지사항 등록</title>
+    <link rel="stylesheet" href="notice_write.css">
+</head>
+<body>
+    <div class="container">
+        <h1>공지사항 등록</h1>
+
+        <div id="message" class="message"></div>
+
+        <form id="frm" method="post" action="../web_ajax/noticewrite.do" enctype="multipart/form-data" onsubmit="return gopage()">
+            <div class="form-group">
+                <label>
+                    제목
+                    <span class="required">*</span>
+                </label>
+                <input type="text" name="title" placeholder="공지사항 제목을 입력하세요">
+            </div>
+
+            <div class="form-group">
+                <label>
+                    글쓴이
+                    <span class="required">*</span>
+                </label>
+                <input type="text" name="author" placeholder="글쓴이 이름을 입력하세요">
+            </div>
+
+            <div class="form-group">
+                <label>
+                    내용
+                    <span class="required">*</span>
+                </label>
+                <textarea name="content" placeholder="공지사항 내용을 입력하세요"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="file">
+                    파일 첨부
+                </label>
+                <input type="file" name="file">
+                <small style="color: #999; margin-top: 5px; display: block;">
+                    선택사항입니다. 파일 크기는 10MB 이하여야 합니다.
+                </small>
+            </div>
+
+            <div class="button-group">
+                <button type="submit">공지사항 등록</button>
+                <button type="reset">취소</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="notice_write.js"></script>
+</body>
+</html>

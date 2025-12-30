@@ -203,5 +203,60 @@
   	
   	
   	
+  	
+  	<servlet>
+	  	<servlet-name>usercheck</servlet-name>
+	  	<servlet-class>web_ajax.usercheck</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>usercheck</servlet-name>
+  		<url-pattern>/web_ajax/usercheck.jsp</url-pattern>
+  		<!-- 프로젝트명이랑 패키지가 아예 다른 경우는 위처럼 폴더를 적어줘야 한다. -->
+  	</servlet-mapping>
+  	
+  	
+  	
+  	
+  	
+  	<servlet>
+	  	<servlet-name>memberok</servlet-name>
+	  	<servlet-class>web_ajax.memberok</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>memberok</servlet-name>
+  		<url-pattern>/web_ajax/memberok.do</url-pattern>
+  		<!-- 프로젝트명이랑 패키지가 아예 다른 경우는 위처럼 폴더를 적어줘야 한다. -->
+  	</servlet-mapping>
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	<servlet>
+	  	<servlet-name>fileok</servlet-name>
+	  	<servlet-class>web_ajax.fileok</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>fileok</servlet-name>
+  		<url-pattern>/web_ajax/fileok.do</url-pattern>
+  		<!-- 프로젝트명이랑 패키지가 아예 다른 경우는 위처럼 폴더를 적어줘야 한다. -->
+  	</servlet-mapping>
+  	
+  	
+  	
+  	
+  	
+  	<servlet>
+	  	<servlet-name>notice_write</servlet-name>
+	  	<servlet-class>web_ajax.noticewrite</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>notice_write</servlet-name>
+  		<url-pattern>/web_ajax/noticewrite.do</url-pattern>
+  		<!-- 프로젝트명이랑 패키지가 아예 다른 경우는 위처럼 폴더를 적어줘야 한다. -->
+  	</servlet-mapping>
+  	
   
 </web-app>
