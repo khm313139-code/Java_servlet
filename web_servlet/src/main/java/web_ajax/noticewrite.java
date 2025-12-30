@@ -31,18 +31,20 @@ public class noticewrite extends HttpServlet {
 
         if (filePart != null && filePart.getSize() > 0) {
             filename = filePart.getSubmittedFileName();
+            //System.out.println(filename);
             filesize = filePart.getSize();
 
             // 실제 저장 경로
             String path = request.getServletContext().getRealPath("/upload/");
             filePart.write(path + filename);
             //System.out.println(path);
+            System.out.println(path);
         }
 
         // alert 후 페이지 이동
         pw.write("<script>"
                 + "alert('공지사항이 올바르게 등록 되었습니다.');"
-                + "location.href='../ajax/file.html';"
+                + "location.href='../ajax/notice_write.html';"
                 + "</script>");
         pw.close();
     }

@@ -1,6 +1,6 @@
 function gopage() {
-    var messagediv = document.getElementById("message");
-    messagediv.innerHTML = ""; // 기존 메시지 초기화
+    var message = document.getElementById("message");
+    message.innerHTML = ""; // 기존 메시지 초기화
 
     var form = document.getElementById("frm");
 
@@ -11,7 +11,7 @@ function gopage() {
     var fileInput = form.file;
 
     // 필수 입력 체크
-    if (!title || !author || !content) {
+    if (title=="" || author=="" || content=="") {
         alert("제목, 글쓴이, 내용은 필수 입력사항입니다.");
         return false; // 제출 막기
     }
@@ -22,7 +22,7 @@ function gopage() {
         var maxSize = 10 * 1024 * 1024; // 10MB
 
         if (fileSize > maxSize) {
-            messagediv.innerHTML = "첨부파일은 최대 10MB까지 업로드 가능합니다.";
+            message.innerHTML = "첨부파일은 최대 10MB까지 업로드 가능합니다.";
             return false; // 제출 막기
         }
     }

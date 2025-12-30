@@ -26,6 +26,8 @@ public class usercheck extends HttpServlet {
 		try {
 			String part = request.getParameter("part");
 			String data = request.getParameter("data"); //아이디 및 사업자번호
+			
+			
 			String find = "";
 			
 			if(part.equals("1")) { //아이디 검색
