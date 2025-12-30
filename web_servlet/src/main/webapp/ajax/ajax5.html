@@ -1,97 +1,69 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>사업자 회원가입</title>
-  <link rel="stylesheet" href="ajax5.css" />
+    <meta charset="UTF-8">
+    <title>사업자 회원가입</title>
+    <link rel="stylesheet" href="ajax5.css">
 </head>
 <body>
-  <div class="container">
-    <h1>사업자 회원가입</h1>
+    <!doctype html>
+    <html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>사업자 회원가입</title>
+        <link rel="stylesheet" href="ajax5.css">
+    </head>
+    <body>
+        <main class="signup-wrap">
+            <h1 class="title">사업자 회원가입</h1>
 
-    <!-- 주의: JavaScript를 사용하지 않도록 설계되었습니다. -->
-    <form id="register-form" action="/register" method="post" autocomplete="off">
+            <form id="signupForm" class="signup-form" novalidate>
+                <div class="form-row">
+                    <label for="userid">아이디</label>
+                    <div class="input-with-btn">
+                        <input id="userid" name="userid" type="text" placeholder="아이디를 입력하세요" required>
+                        <button type="button" id="checkUserBtn" class="check-btn">아이디 중복체크</button>
+                    </div>
+                    <span id="useridStatus" class="status" aria-live="polite"></span>
+                </div>
 
-      <div class="form-row">
-        <label for="username">아이디</label>
-        <input type="text" id="username" name="username" required minlength="4" maxlength="20" placeholder="아이디를 입력하세요" />
-       
-       
-        <button type="button" formaction="/check-username" formmethod="get" formnovalidate class="check-btn" onclick="idcheck()">중복체크</button>
-       
-      </div>
+                <div class="form-row">
+                    <label for="password">비밀번호</label>
+                    <input id="password" name="password" type="password" placeholder="비밀번호를 입력하세요" required>
+                </div>
 
-      <div class="form-row">
-        <label for="password">비밀번호</label>
-        <input type="password" id="password" name="password" required minlength="8" placeholder="영문, 숫자 포함 8자 이상" />
-      </div>
+                <div class="form-row">
+                    <label for="company">회사명</label>
+                    <input id="company" name="company" type="text" placeholder="회사명을 입력하세요" required>
+                </div>
 
-      <div class="form-row">
-        <label for="company">회사명</label>
-        <input type="text" id="company" name="company" required placeholder="회사명을 입력하세요" />
-      </div>
+                <div class="form-row">
+                    <label for="ceo">대표자명</label>
+                    <input id="ceo" name="ceo" type="text" placeholder="대표자명을 입력하세요" required>
+                </div>
 
-      <div class="form-row">
-        <label for="ceo">대표자명</label>
-        <input type="text" id="ceo" name="ceo" required placeholder="대표자명을 입력하세요" />
-      </div>
+                <div class="form-row">
+                    <label for="bizno">사업자 등록번호</label>
+                    <div class="input-with-btn">
+                        <input id="bizno" name="bizno" type="text" placeholder="000-00-00000" required>
+                        <button type="button" id="checkBizBtn" class="check-btn">사업자 등록번호 중복체크</button>
+                    </div>
+                    <span id="biznoStatus" class="status" aria-live="polite"></span>
+                </div>
 
-      <div class="form-row">
-        <label for="bizno">사업자등록번호</label>
-        <input type="text" id="bizno" name="bizno" required pattern="\d{3}-\d{2}-\d{5}" placeholder="000-00-00000" title="000-00-00000 형식으로 입력하세요" />
-        <button type="button" formaction="/check-bizno" formmethod="get" formnovalidate class="check-btn" onclick="bizcheck()">중복체크</button>
-      </div>
+                <div class="form-row actions">
+                    <button type="submit" id="submitBtn" class="primary">가입하기</button>
+                    <button type="reset" class="secondary">취소</button>
+                </div>
 
-      <div class="form-actions">
-        <button type="submit" class="submit-btn">가입하기</button>
-        <button type="reset" class="reset-btn">취소</button>
-      </div>
+                <div class="form-row">
+                    <span id="formStatus" class="status" aria-live="polite"></span>
+                </div>
+            </form>
+        </main>
 
-      <p class="note">* 중복체크는 서버의 해당 엔드포인트(<code>/check-username</code>, <code>/check-bizno</code>)로 요청을 보냅니다. 서버 쪽에서 중복 확인 로직을 구현해 주세요.</p>
-    </form>
-  </div>
-</body>
-<script>
-      function idcheck(){
-      var username = document.getElementById("username");
-      var ajax1 = new XMLHttpRequest();
-      ajax1.onreadystatechange = function(){
-         if(ajax1.readyState == 4 && ajax1.status == 200){
-            console.log(this.response);
-            if(this.response == "id_ok"){
-               alert("사용가능한 아이디입니다.");
-            }
-            else if(this.response == "id_jb"){
-               alert("중복된 아이디입니다.");
-            }
-            else{
-               alert("올바른 접근이 아닙니다.");
-            }
-         }
-      }
-      ajax1.open("get","http://172.30.1.10:8080/web_ajax/ajax5.do?username="+username.value,true);
-      ajax1.send();
-   }
-         function bizcheck(){
-      var bizno = document.getElementById("bizno");
-      var ajax2 = new XMLHttpRequest();
-      ajax2.onreadystatechange = function(){
-         if(ajax2.readyState == 4 && ajax2.status == 200){
-            console.log(this.response);
-            if(this.response == "bz_ok"){
-               alert("사용가능한 사업자번호입니다.");
-            }
-            else if(this.response == "bz_jb"){
-               alert("중복된 사업자번호입니다.");
-            }
-            else{
-               alert("올바른 접근이 아닙니다.");
-            }
-         }
-      }
-      ajax2.open("get","http://172.30.1.10:8080/web_ajax/ajax5.do?bizno="+bizno.value,true);
-      ajax2.send();
-   }
-</script>
-</html>
+        <script src="ajax5.js"></script>
+    </body>
+    </html>
+
