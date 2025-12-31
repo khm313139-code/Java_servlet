@@ -43,9 +43,10 @@
             </div>
 
             <div class="form-group">
+               	<!-- multiple : 여러개의 파일을 선택하여 파일을 전송할 때 사용합니다.
+               
                 <label>
-                    파일 첨부1
-                
+                    파일 첨부
                 <input type="file" name="file" multiple>
                 <!-- 이렇게 공간 하나 잡아놓고 name 뒤에 멀티플 때리면 기존 빽 코드 수정 안하고 한 인풋 안에 다 때릴 수 있다 파일 여러개를 -->
                 <small style="color: #999; margin-top: 5px; display: block;">
@@ -104,6 +105,7 @@
 	        return;
 	    }
 	    else{
+			
 			/* 해당 파일 첨부 갯수 파악 */
 			
 			if(frm.file.files.length>3){
