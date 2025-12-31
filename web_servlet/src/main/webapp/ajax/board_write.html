@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시판 글쓰기</title>
+    <link rel="stylesheet" href="board_write.css">
+    <!-- CKEditor CDN -->
+    <script src="./ckeditor/ckeditor.js?v=3"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>게시판 글쓰기</h1>
+
+        <div id="message" class="message"></div>
+        
+		<!-- onsubmit="return gopage()" 이거를 적용했을때만 required가 적용된다 이러면 java에서 처리해야함 -->
+        <!-- required 속성은 submit 버튼에서만 작동되는 속성값 -->
+        
+        <form id="frm" method="post" action="../web_ajax/board_writeok.do" enctype="multipart/form-data">
+            <div class="form-group">
+                <label>
+                    제목
+                    <span class="required">*</span>
+                </label>
+                <input type="text" name="title" placeholder="게시글 제목을 입력하세요">
+            </div>
+
+            <div class="form-group">
+                <label>
+                    글쓴이
+                    <span class="required">*</span>
+                </label>
+                <input type="text" name="author" placeholder="글쓴이 이름을 입력하세요">
+            </div>
+
+            <div class="form-group">
+                <label for="editor">
+                    내용
+                    <span class="required">*</span>
+                </label>
+                <textarea id="editor" name="content"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>
+                    파일 첨부1
+                
+                <input type="file" name="file" multiple>
+                <!-- 이렇게 공간 하나 잡아놓고 name 뒤에 멀티플 때리면 기존 빽 코드 수정 안하고 한 인풋 안에 다 때릴 수 있다 파일 여러개를 -->
+                <small style="color: #999; margin-top: 5px; display: block;">
+                    선택사항입니다. 파일 크기는 10MB 이하여야 합니다.
+                </small>
+                </label>
+                <label>
+					
+					<!--
+                    파일 첨부2
+                
+                <input type="file" name="file">
+                <small style="color: #999; margin-top: 5px; display: block;">
+                    선택사항입니다. 파일 크기는 10MB 이하여야 합니다.
+                </small>
+                </label>
+                <label>
+                    파일 첨부3
+                
+                <input type="file" name="file">
+                <small style="color: #999; margin-top: 5px; display: block;">
+                    선택사항입니다. 파일 크기는 10MB 이하여야 합니다.
+                </small>
+                </label>
+                -->
+            </div>
+
+            <div class="button-group">
+                <button type="button" class="btn-primary" onclick="gopage()">글쓰기 완료</button>
+                <button type="reset" class="btn-secondary">초기화</button>
+                <button type="button" class="btn-cancel" onclick="history.back()">취소</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+	        // CKEditor 인스턴스 생성
+	        CKEDITOR.replace('content');
+	        
+	        function gopage(){
+	    if(frm.title.value.trim() == ""){
+	        alert("제목을 입력하세요!");
+	        frm.title.focus();
+	        return;
+	    }
+	
+	    if(frm.author.value.trim() == ""){
+	        alert("글쓴이를 입력하세요!");
+	        frm.author.focus();
+	        return;
+	    }
+	
+	    var content = CKEDITOR.instances.editor.getData().trim();
+	    if(content == ""){
+	        alert("내용을 입력하세요!");
+	        return;
+	    }
+	    else{
+			/* 해당 파일 첨부 갯수 파악 */
+			
+			if(frm.file.files.length>3){
+				alert("파일의 첨부파일 갯수는 최대 3개까지 입니다.");
+				frm.file.value = "";
+			}
+			
+			else{
+	    		frm.submit();
+			}
+		}
+	    
+	
+	}
+
+    </script>
+</body>
+</html>

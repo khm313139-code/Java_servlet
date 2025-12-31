@@ -258,5 +258,23 @@
   		<!-- 프로젝트명이랑 패키지가 아예 다른 경우는 위처럼 폴더를 적어줘야 한다. -->
   	</servlet-mapping>
   	
+  	
+  	
+	
+  	<servlet>
+	  	<servlet-name>board_writeok</servlet-name>
+	  	<servlet-class>web_ajax.board_writeok</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>board_writeok</servlet-name>
+  		<url-pattern>/web_ajax/board_writeok.do</url-pattern>
+  		
+  	</servlet-mapping>
+  
+  	 
+  	 
+  	
+  	
+  	
   
 </web-app>
